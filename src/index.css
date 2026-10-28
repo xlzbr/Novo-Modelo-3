@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --color-navy-900: #14243F;
+  --color-navy-800: #1B3156;
+  --color-navy-700: #203A65;
+  --color-navy-600: #2C4D84;
+  --color-navy-100: #D8E5F3;
+  --color-navy-50: #EAF0F7;
+  --color-surface-bg: #F6F7F9;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    transition: background-color 250ms ease, color 250ms ease;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  body {
+    font-family: var(--font-sans);
+    background-color: #F6F7F9;
+    color: #1e293b;
+    transition: background-color 250ms ease, color 250ms ease;
+  }
+  .dark body {
+    background-color: #0B132B;
+    color: #F1F5F9;
+  }
+}
+
+/* Transições suaves e suporte a movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Custom scrollbars for high-density academic lists */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Adaptação de superfícies para o tema escuro institucional do Folium */
+.dark .bg-white,
+.dark .bg-white\/95,
+.dark .bg-white\/90,
+.dark .bg-white\/80,
+.dark .bg-white\/98 {
+  background-color: #14223D;
+}
+.dark .bg-slate-50,
+.dark .bg-slate-50\/70,
+.dark .bg-slate-50\/80 {
+  background-color: #1A2B49;
+}
+.dark .bg-slate-100 {
+  background-color: #1F3254;
+}
+.dark .bg-\[\#F6F7F9\] {
+  background-color: #0B132B;
+}
+.dark .bg-\[\#EAF0F7\],
+.dark .bg-\[\#EAF0F7\]\/40,
+.dark .bg-\[\#EAF0F7\]\/60,
+.dark .bg-\[\#EAF0F7\]\/80 {
+  background-color: #1C3359;
+}
+
+/* Hover surfaces no tema escuro */
+.dark .hover\:bg-slate-50:hover {
+  background-color: #203456;
+}
+.dark .hover\:bg-slate-100:hover {
+  background-color: #263F6A;
+}
+.dark .hover\:bg-\[\#EAF0F7\]:hover {
+  background-color: #243F68;
+}
+
+/* Bordas e divisórias com contraste de 3:1 estruturadas (#344563) */
+.dark .border-slate-200,
+.dark .border-slate-200\/90,
+.dark .border-slate-200\/80,
+.dark .border-slate-200\/70,
+.dark .border-slate-200\/60,
+.dark .border-slate-100,
+.dark .border-slate-300,
+.dark .divide-slate-100,
+.dark .divide-slate-200 {
+  border-color: #344563;
+}
+
+/* Hierarquia Tipográfica Rigorosa no Modo Escuro */
+/* 1. Títulos de página, valores em destaque e cabeçalhos fortes */
+.dark .text-slate-900 {
+  color: #F8FAFC;
+}
+.dark .text-slate-800 {
+  color: #F1F5F9;
+}
+
+/* 2. Texto normal de leitura, itens de tabela e rótulos de navegação */
+.dark .text-slate-700 {
+  color: #E2E8F0;
+}
+
+/* 3. Textos secundários, instruções de acesso e descrições */
+.dark .text-slate-600 {
+  color: #CBD5E1;
+}
+
+/* 4. Textos auxiliares pequenos, metadados, datas, andares e horários */
+.dark .text-slate-500 {
+  color: #B6C5D8;
+}
+
+/* 5. Ícones sutis, códigos de prédio em repouso e notas terciárias */
+.dark .text-slate-400 {
+  color: #A2B5CD;
+}
+
+/* 6. Estados inativos / desabilitados */
+.dark .text-slate-300 {
+  color: #64748B;
+}
+
+/* Identidade Visual Folium em Modo Escuro (Azul celeste de alto contraste) */
+.dark .text-\[\#203A65\],
+.dark .text-\[\#1B3156\],
+.dark .text-\[\#14243F\] {
+  color: #93C5FD;
+}
+
+/* Formulários, Seletores e Inputs */
+.dark input:not([type="checkbox"]):not([type="radio"]),
+.dark select,
+.dark textarea {
+  background-color: #162645;
+  color: #F8FAFC;
+  border-color: #344563;
+}
+.dark input::placeholder,
+.dark textarea::placeholder,
+.dark .placeholder-slate-400::placeholder {
+  color: #7B90AC;
+}
+
+/* Avisos informativos e alertas contextuais */
+.dark .bg-blue-50 {
+  background-color: #112340;
+}
+.dark .border-blue-200 {
+  border-color: #254B7A;
+}
+.dark .text-blue-900,
+.dark .text-blue-800 {
+  color: #D8E8FC;
+}
+.dark .text-blue-600 {
+  color: #60A5FA;
+}
+
+.dark .bg-amber-50 {
+  background-color: #2E2211;
+}
+.dark .bg-amber-100 {
+  background-color: #3D2E14;
+}
+.dark .border-amber-300,
+.dark .border-amber-200 {
+  border-color: #784D12;
+}
+.dark .text-amber-900,
+.dark .text-amber-800 {
+  color: #FDE68A;
+}
